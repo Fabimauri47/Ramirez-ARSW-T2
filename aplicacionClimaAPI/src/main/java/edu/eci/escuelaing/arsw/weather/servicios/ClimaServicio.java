@@ -4,6 +4,6 @@ import org.json.JSONObject;
 
 public interface ClimaServicio {
 
-    JSONObject obtenerEstadisticas(String ciudad) throws climaServicioËxcepcion;
+    String obtenerEstadisticas(String ciudad) throws climaServicioËxcepcion;
 
 }

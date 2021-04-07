@@ -18,7 +18,7 @@ public class ClimaServicioImpl implements ClimaServicio {
     CacheServicio cacheServicio;
 
     public JSONObject obternerEstadisticas(String ciudad) throws climaServicioËxcepcion {
-        HttpResponse<String> respuesta = null;
+        HttpResponse<String> respuesta;
         try {
             respuesta = Unirest.get("https://api.openweathermap.org/data/2.5/weather?q=" + ciudad + "&appid=6196b9e3c9c293bfacfc6e506169df11").asString();
             return new JSONObject(respuesta.getBody());
@@ -28,14 +28,13 @@ public class ClimaServicioImpl implements ClimaServicio {
 
     }
 
-
     @Override
-    public JSONObject obtenerEstadisticas(String ciudad) throws climaServicioËxcepcion {
+    public String obtenerEstadisticas(String ciudad) throws climaServicioËxcepcion {
         if (!cacheServicio.estaEnCache(ciudad)){
             JSONObject ciudadObjetivo = obternerEstadisticas(ciudad);
             cacheServicio.salvarRegistroPorNombreCiudad(ciudad, ciudadObjetivo);
         }
-        return cacheServicio.obtenerRegistroporNombreCiudad(ciudad);
+        return cacheServicio.obtenerRegistroporNombreCiudad(ciudad).toString();
     }
 
 
