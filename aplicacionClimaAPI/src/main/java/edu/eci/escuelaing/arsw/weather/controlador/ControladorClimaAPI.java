@@ -1,6 +1,7 @@
 package edu.eci.escuelaing.arsw.weather.controlador;
 
 import edu.eci.escuelaing.arsw.weather.servicios.ClimaServicio;
+import edu.eci.escuelaing.arsw.weather.servicios.climaServicioËxcepcion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;

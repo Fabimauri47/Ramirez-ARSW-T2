@@ -1,1 +1,6 @@
+edu\eci\escuelaing\arsw\weather\modelo\Ciudad.class
+edu\eci\escuelaing\arsw\weather\servicios\ClimaServicio.class
 edu\eci\escuelaing\arsw\weather\App.class
+edu\eci\escuelaing\arsw\weather\servicios\impl\ClimaServicioImpl.class
+edu\eci\escuelaing\arsw\weather\servicios\climaServicioËxcepcion.class
+edu\eci\escuelaing\arsw\weather\controlador\ControladorClimaAPI.class
