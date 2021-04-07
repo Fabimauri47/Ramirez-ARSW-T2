@@ -1,6 +1,7 @@
 let app = (() => {
     let client = apiclient;
     var mapPaises = (funciones) => {
+        console.log(funciones)
         document.getElementById("name").innerText = funciones.name;
         document.getElementById("visibility").innerText = funciones.visibility;
         document.getElementById("dt").innerText = funciones.dt;
