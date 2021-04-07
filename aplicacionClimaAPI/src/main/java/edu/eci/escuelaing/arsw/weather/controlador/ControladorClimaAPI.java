@@ -1,5 +1,6 @@
 package edu.eci.escuelaing.arsw.weather.controlador;
 
+import edu.eci.escuelaing.arsw.weather.servicios.ClimaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -16,17 +17,16 @@ import java.util.logging.Logger;
 public class ControladorClimaAPI {
 
     @Autowired
-    @Qualifier("ciudadServicio")
-    CiudadServicio ciudadServicio;
+    @Qualifier("climaServicio")
+    ClimaServicio climaServicio;
 
     @GetMapping("/ciudades/{nombre}")
     public ResponseEntity<?> getStatistics(@PathVariable String nombre) {
         try {
-            Ciudad ciudad = ciudadServicio.obtenerEstadisticas(nombre);
-            return new ResponseEntity<>(ciudad, HttpStatus.ACCEPTED);
-        } catch (AgentServiceException e) {
+            return new ResponseEntity<>(climaServicio.obtenerEstadisticas(nombre), HttpStatus.ACCEPTED);
+        } catch (climaServicioËxcepcion e) {
             Logger.getLogger(ControladorClimaAPI.class.getName()).log(Level.SEVERE, e.getMessage(), e);
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 }
