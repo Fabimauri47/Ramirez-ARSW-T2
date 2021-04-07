@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ARSW Weather Stats</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/apiclient.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkea9ok6Fc6w38Jrb1X87tbul8F05BmHI&language=en"
+            type="text/javascript"></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body onload="app.init()">
+<form>
+    <div class="bg">
+        <div class="row" style="margin-top: 50px;margin-left:3rem; margin-right: 3rem">
+            <div class="column">
+                <h2>
+                    ARSW Weather Stats
+                </h2>
+                <label>City: </label>
+                <label id="name"></label>
+                <br>
+                <label>Weather: </label>
+                <label id="visibility"></label>
+                <br>
+                <label>Weather Description: </label>
+                <label id="dt"></label>
+                <br>
+                <label>Temperature: </label>
+                <label id="weather"></label>
+                <br>
+                <label>Feels Like: </label>
+                <label id="wind"></label>
+                <br>
+            </div>
+            <div class="column">
+                <h2 id="Availability">
+                    Search & Map
+                </h2>
+                <div>
+                    <form class="form-inline">
+                        <input type="text" id="city" placeholder="Search a city" name="city">
+                        <button type="button" onclick="app.consultarCiudad(city.value)"
+                                class="btn btn-warning">Search
+                        </button>
+                    </form>
+                    <div id="map">holin</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
