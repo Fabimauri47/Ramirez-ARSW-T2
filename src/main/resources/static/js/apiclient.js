@@ -6,7 +6,6 @@ apiclient = (function () {
             dataType: "json",
             url: " http://localhost:8080/api/ciudades/"+city,
             success: function(data){
-                console.log(data)
                 callback(data)
             },error:function (xhr, ajaxOptions, thrownError){
                 if(xhr.status==404 || errorThrown == 'Not Found') {
